@@ -25,21 +25,6 @@ return {
         require("fidget").setup({})
 
         local servers = {
-            nixd = {
-                capabilities = capabilities,
-            },
-            clangd = {
-                capabilities = capabilities,
-            },
-            rust_analyzer = {
-                capabilities = capabilities,
-            },
-            tsserver = {
-                capabilities = capabilities,
-            },
-            gopls = {
-                capabilities = capabilities,
-            },
             lua_ls = {
                 capabilities = capabilities,
                 settings = {
@@ -61,7 +46,50 @@ return {
                         }
                     }
                 }
-            }
+            },
+            nixd = {
+                capabilities = capabilities,
+            },
+            clangd = {
+                capabilities = capabilities,
+            },
+            rust_analyzer = {
+                capabilities = capabilities,
+            },
+            tsserver = {
+                capabilities = capabilities,
+            },
+            gopls = {
+                capabilities = capabilities,
+            },
+            templ = {
+                capabilities = capabilities,
+            },
+            ruff = { -- python
+                capabilities = capabilities,
+            },
+            pyright = {
+                capabilities = capabilities,
+                settings = {
+                    python = {
+                        autoSearchPaths = true,
+                        diagnosticMode = "openFilesOnly",
+                        useLibraryCodeForTypes = true
+                    }
+                },
+            },
+            html = {
+                capabilities = capabilities,
+                filetypes = { "html", "templ" }
+            },
+            tailwindcss = {
+                capabilities = capabilities,
+                filetypes = { "templ", "astro", "javascript", "typescript", "react" },
+                init_options = { userLanguages = { templ = "html" } },
+            },
+            jsonls = {
+                capabilities = capabilities,
+            },
         }
 
         for server_name, opts in pairs(servers) do

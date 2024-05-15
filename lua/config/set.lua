@@ -15,3 +15,7 @@ vim.opt.signcolumn = "yes"
 vim.cmd[[hi SignColumn ctermbg=NONE guibg=NONE]]
 vim.cmd[[hi Comment ctermfg=LightGray guifg=LightGray]]
 
+vim.g.netrw_keepdir = 0
+
+vim.filetype.add({ extension = { templ = "templ" } })
+
