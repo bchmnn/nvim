@@ -1,7 +1,7 @@
 vim.opt.list = true
 
 vim.opt.listchars = {
-    tab = "→ ",
+    tab = "│ ",
     trail = "·",
     lead = "·",
 }

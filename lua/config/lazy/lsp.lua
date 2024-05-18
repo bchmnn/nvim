@@ -90,6 +90,9 @@ return {
             jsonls = {
                 capabilities = capabilities,
             },
+            texlab = {
+                capabilities = capabilities,
+            }
         }
 
         for server_name, opts in pairs(servers) do
