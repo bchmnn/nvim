@@ -12,10 +12,10 @@ vim.opt.colorcolumn = "80"
 
 vim.opt.signcolumn = "yes"
 
-vim.cmd[[hi SignColumn ctermbg=NONE guibg=NONE]]
-vim.cmd[[hi Comment ctermfg=LightGray guifg=LightGray]]
+vim.cmd [[hi SignColumn ctermbg=NONE guibg=NONE]]
+vim.cmd [[hi Comment ctermfg=LightGray guifg=LightGray]]
 
 vim.g.netrw_keepdir = 0
+vim.g.netrw_altv = 1
 
 vim.filetype.add({ extension = { templ = "templ" } })
-

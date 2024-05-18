@@ -6,10 +6,10 @@ vim.opt.listchars = {
     lead = "·",
 }
 
-vim.cmd[[highlight hi-WhitespaceIbl ctermfg=LightGray guifg=LightGray]]
-vim.cmd[[match hi-TrailWhitespace /\s\+$/]]
-vim.cmd[[highlight hi-TrailWhitespace ctermfg=LightGray guifg=LightGray]]
-vim.cmd[[highlight Visual ctermbg=LightBlue guibg=LightBlue]]
+vim.cmd [[highlight hi-WhitespaceIbl ctermfg=LightGray guifg=LightGray]]
+vim.cmd [[match hi-TrailWhitespace /\s\+$/]]
+vim.cmd [[highlight hi-TrailWhitespace ctermfg=LightGray guifg=LightGray]]
+vim.cmd [[highlight Visual ctermbg=LightBlue guibg=LightBlue]]
 
 return {
     'lukas-reineke/indent-blankline.nvim',
@@ -29,4 +29,3 @@ return {
         },
     },
 }
-

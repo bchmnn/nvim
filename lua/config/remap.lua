@@ -1,7 +1,5 @@
 vim.g.mapleader = " "
 
-vim.keymap.set('n', '<leader>e', vim.cmd.Ex)
-
 vim.keymap.set('v', '<C-c>', '"+y', { remap = true })
 vim.keymap.set('i', '<C-v>', '<C-r>+', { remap = true })
 
