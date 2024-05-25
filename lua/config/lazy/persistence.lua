@@ -2,7 +2,7 @@ return {
     "folke/persistence.nvim",
     event = "BufReadPre",
     opts = { options = vim.opt.sessionoptions:get() },
-    init = function()
-        require("persistence").load()
-    end
+    -- init = function()
+    --     require("persistence").load()
+    -- end
 }

@@ -84,7 +84,7 @@ return {
             },
             tailwindcss = {
                 capabilities = capabilities,
-                filetypes = { "templ", "astro", "javascript", "typescript", "react" },
+                filetypes = { "templ", "astro", "javascript", "javascriptreact", "typescript", "typescriptreact", "react" },
                 init_options = { userLanguages = { templ = "html" } },
             },
             jsonls = {
