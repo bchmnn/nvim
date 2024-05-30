@@ -28,5 +28,3 @@ vim.keymap.set('n', '<leader>b', function()
     vim.api.nvim_command("!(" .. table.concat(cmd, " | ") .. ")")
 end)
 
--- TODO maybe a more suffisticated solution exists?
-vim.api.nvim_exec([[ au BufRead,BufNewFile *.y set filetype=lex ]], false)

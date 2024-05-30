@@ -1,9 +1,7 @@
 return {
     'nvim-treesitter/nvim-treesitter',
     build = ':TSUpdate',
-
     config = function()
-
         require('nvim-treesitter.configs').setup({
             ensure_installed = {
                 "c",
@@ -36,9 +34,13 @@ return {
                 additional_vim_regex_highlighting = false,
             },
         })
-
+    end,
+    init = function()
+        vim.filetype.add({
+            extension = {
+                y = 'lex',
+            }
+        })
+        vim.treesitter.language.register('python', 'sage')
     end
-
-
-
 }
