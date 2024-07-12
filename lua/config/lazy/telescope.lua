@@ -62,5 +62,6 @@ return {
         vim.keymap.set('n', '<leader><leader>', git_files_with_fallback)
         vim.keymap.set('n', '<C-p>', git_files_with_fallback)
         vim.keymap.set('n', '<leader>g', builtin.live_grep)
+        vim.keymap.set('n', '<leader>d', builtin.diagnostics)
     end
 }
