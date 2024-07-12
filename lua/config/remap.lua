@@ -12,8 +12,8 @@ vim.keymap.set('n', '<S-Tab>', ':tabprev<CR>', { remap = true })
 
 vim.keymap.set('n', '<C-Left>', ':vertical resize -10<CR>', { remap = true })
 vim.keymap.set('n', '<C-Right>', ':vertical resize +10<CR>', { remap = true })
-vim.keymap.set('n', '<C-Up>', ':resize -10<CR>', { remap = true })
-vim.keymap.set('n', '<C-Down>', ':resize +10<CR>', { remap = true })
+vim.keymap.set('n', '<C-Up>', ':resize -5<CR>', { remap = true })
+vim.keymap.set('n', '<C-Down>', ':resize +5<CR>', { remap = true })
 
 vim.keymap.set('n', '<leader>b', function()
     local file = vim.api.nvim_buf_get_name(0)
