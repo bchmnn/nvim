@@ -19,5 +19,6 @@ vim.g.netrw_keepdir = 0
 vim.g.netrw_altv = 1
 
 vim.opt.termguicolors = true
+vim.opt.sessionoptions = { "buffers", "curdir", "tabpages", "winsize", "help", "globals", "skiprtp", "folds" }
 
 vim.filetype.add({ extension = { templ = "templ" } })
