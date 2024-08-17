@@ -23,6 +23,7 @@ return {
             typescript = { { "prettier", "prettierd" } },
             javascriptreact = { { "prettier", "prettierd" } },
             typescriptreact = { { "prettier", "prettierd" } },
+            markdown = { "mdformat" },
         },
     },
 }

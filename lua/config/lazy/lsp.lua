@@ -92,7 +92,10 @@ return {
             },
             texlab = {
                 capabilities = capabilities,
-            }
+            },
+            marksman = {
+                capabilities = capabilities,
+            },
         }
 
         for server_name, opts in pairs(servers) do
