@@ -24,6 +24,7 @@ return {
             javascriptreact = { { "prettier", "prettierd" } },
             typescriptreact = { { "prettier", "prettierd" } },
             markdown = { "mdformat" },
+            nix = { "nixfmt" },
         },
     },
 }

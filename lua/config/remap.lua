@@ -15,6 +15,9 @@ vim.keymap.set('n', '<C-Right>', ':vertical resize +10<CR>', { remap = true })
 vim.keymap.set('n', '<C-Up>', ':resize -5<CR>', { remap = true })
 vim.keymap.set('n', '<C-Down>', ':resize +5<CR>', { remap = true })
 
+vim.keymap.set('n', '<leader>/', '<C-/>', { remap = true })
+vim.keymap.set('v', '<leader>/', '<C-/>', { remap = true })
+
 vim.keymap.set('n', '<leader>b', function()
     local file = vim.api.nvim_buf_get_name(0)
     local r = unpack(vim.api.nvim_win_get_cursor(0))

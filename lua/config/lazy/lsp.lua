@@ -50,13 +50,16 @@ return {
             nixd = {
                 capabilities = capabilities,
             },
+            nil_ls = {
+                capabilities = capabilities,
+            },
             clangd = {
                 capabilities = capabilities,
             },
             rust_analyzer = {
                 capabilities = capabilities,
             },
-            tsserver = {
+            ts_ls = {
                 capabilities = capabilities,
             },
             gopls = {
