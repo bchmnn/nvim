@@ -44,6 +44,24 @@ return {
             bind_to_cwd = false,
             follow_current_file = { enabled = true },
             use_libuv_file_watcher = true,
+            window = {
+                mappings = {
+                    ["<C-Return>"] = "system_open",
+                    ["<C-o>"] = "xdg_open_with",
+                },
+            },
+        },
+        commands = {
+            system_open = function(state)
+                local node = state.tree:get_node()
+                local path = node:get_id()
+                vim.fn.jobstart({ "xdg-open", path }, { detach = true })
+            end,
+            xdg_open_with = function(state)
+                local node = state.tree:get_node()
+                local path = node:get_id()
+                vim.fn.jobstart({ "gtk-open-with", path }, { detach = true })
+            end
         },
         window = {
             -- ["<space>"] = "none",

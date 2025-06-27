@@ -8,6 +8,8 @@ vim.opt.expandtab = true
 
 vim.opt.smartindent = true
 
+vim.opt.inccommand = "split"
+
 vim.opt.colorcolumn = "80"
 
 vim.opt.signcolumn = "yes"
@@ -22,3 +24,6 @@ vim.opt.termguicolors = true
 vim.opt.sessionoptions = { "buffers", "curdir", "tabpages", "winsize", "help", "globals", "skiprtp", "folds" }
 
 vim.filetype.add({ extension = { templ = "templ" } })
+
+vim.opt.undofile = true
+

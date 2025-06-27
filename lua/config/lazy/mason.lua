@@ -1,6 +1,8 @@
 return {
     "neovim/nvim-lspconfig",
     dependencies = {
+        "williamboman/mason.nvim",
+        "williamboman/mason-lspconfig.nvim",
         "hrsh7th/nvim-cmp",
         "hrsh7th/cmp-nvim-lsp",
         "hrsh7th/cmp-buffer",
@@ -9,6 +11,7 @@ return {
         "j-hui/fidget.nvim",
         'saadparwaiz1/cmp_luasnip',
         'L3MON4D3/LuaSnip',
+        'WhoIsSethDaniel/mason-tool-installer.nvim',
     },
 
     config = function()
@@ -23,10 +26,10 @@ return {
         )
 
         require("fidget").setup({})
+        require("mason").setup()
 
-        local servers = {
+        local options = {
             lua_ls = {
-                capabilities = capabilities,
                 settings = {
                     Lua = {
                         runtime = {
@@ -47,63 +50,60 @@ return {
                     }
                 }
             },
-            nixd = {
-                capabilities = capabilities,
-            },
-            nil_ls = {
-                capabilities = capabilities,
-            },
-            clangd = {
-                capabilities = capabilities,
-            },
-            rust_analyzer = {
-                capabilities = capabilities,
-            },
-            ts_ls = {
-                capabilities = capabilities,
-            },
-            gopls = {
-                capabilities = capabilities,
-            },
-            templ = {
-                capabilities = capabilities,
-            },
-            ruff = { -- python
-                capabilities = capabilities,
-            },
+            clangd = {},
+            rust_analyzer = {},
+            ts_ls = {},
+            gopls = {},
+            templ = {},
+            ruff = {},
             pyright = {
-                capabilities = capabilities,
                 settings = {
                     python = {
-                        autoSearchPaths = true,
-                        diagnosticMode = "openFilesOnly",
-                        useLibraryCodeForTypes = true
+                        analysis = {
+                            autoSearchPaths = true,
+                            diagnosticMode = 'workspace',
+                            useLibraryCodeForTypes = true,
+                        }
                     }
                 },
             },
             html = {
-                capabilities = capabilities,
                 filetypes = { "html", "templ" }
             },
             tailwindcss = {
-                capabilities = capabilities,
                 filetypes = { "html", "templ", "astro", "javascript", "javascriptreact", "typescript", "typescriptreact", "react" },
                 init_options = { userLanguages = { templ = "html" } },
             },
-            jsonls = {
-                capabilities = capabilities,
-            },
-            texlab = {
-                capabilities = capabilities,
-            },
-            marksman = {
-                capabilities = capabilities,
-            },
+            jsonls = {},
+            texlab = {},
+            marksman = {},
+            phpactor = {},
         }
 
-        for server_name, opts in pairs(servers) do
-            require('lspconfig')[server_name].setup(opts)
+        local servers = {}
+        for name, _ in pairs(options) do
+            table.insert(servers, name)
+            local opts = options[name]
+            opts[capabilities] = capabilities
+            require("lspconfig")[name].setup(opts)
         end
+
+        require("mason-lspconfig").setup({
+            ensure_installed = servers,
+            automatic_installation = true,
+            automatic_enable = true,
+        })
+
+        require('mason-tool-installer').setup {
+            ensure_installed = {
+                "yamlfix",
+                "black",
+                "isort",
+                "prettier",
+                "prettierd",
+                "mdformat",
+            },
+        }
 
         local luasnip = require('luasnip')
 
@@ -133,10 +133,11 @@ return {
                 focusable = false,
                 style = "minimal",
                 border = "rounded",
-                source = "always",
+                source = true,
                 header = "",
                 prefix = "",
             },
         })
     end
+
 }
