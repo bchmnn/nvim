@@ -31,3 +31,12 @@ vim.keymap.set('n', '<leader>b', function()
     vim.api.nvim_command("!(" .. table.concat(cmd, " | ") .. ")")
 end)
 
+function insertFullPath()
+    local filepath = vim.fn.expand('%')
+    vim.fn.setreg('+', filepath) -- write to clippoard
+end
+
+vim.keymap.set('n', '<leader>pc', function()
+    local filepath = vim.fn.expand('%')
+    vim.fn.setreg('+', filepath) -- write to clippoard
+end, { noremap = true, silent = true })

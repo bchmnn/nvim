@@ -29,6 +29,13 @@ return {
         require("mason").setup()
 
         local options = {
+            clangd = {},
+            gopls = {},
+            html = {
+                filetypes = { "html", "templ" }
+            },
+            jdtls = {},
+            jsonls = {},
             lua_ls = {
                 settings = {
                     Lua = {
@@ -36,9 +43,7 @@ return {
                             version = "LuaJIT"
                         },
                         diagnostics = {
-                            globals = {
-                                "vim"
-                            }
+                            globals = { "vim" }
                         },
                         workspace = {
                             checkThirdParty = false,
@@ -50,12 +55,8 @@ return {
                     }
                 }
             },
-            clangd = {},
-            rust_analyzer = {},
-            ts_ls = {},
-            gopls = {},
-            templ = {},
-            ruff = {},
+            marksman = {},
+            phpactor = {},
             pyright = {
                 settings = {
                     python = {
@@ -67,17 +68,21 @@ return {
                     }
                 },
             },
-            html = {
-                filetypes = { "html", "templ" }
-            },
+            ruff = {},
+            rust_analyzer = {},
             tailwindcss = {
-                filetypes = { "html", "templ", "astro", "javascript", "javascriptreact", "typescript", "typescriptreact", "react" },
-                init_options = { userLanguages = { templ = "html" } },
+                filetypes = {
+                    "html", "templ", "astro", "javascript", "javascriptreact", "typescript", "typescriptreact", "react"
+                },
+                init_options = {
+                    userLanguages = {
+                        templ = "html"
+                    }
+                },
             },
-            jsonls = {},
+            templ = {},
             texlab = {},
-            marksman = {},
-            phpactor = {},
+            ts_ls = {},
         }
 
         local servers = {}
