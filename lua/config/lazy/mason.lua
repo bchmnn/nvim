@@ -56,6 +56,7 @@ return {
                 }
             },
             marksman = {},
+            nil_ls = {},
             phpactor = {},
             pyright = {
                 settings = {
@@ -101,12 +102,13 @@ return {
 
         require('mason-tool-installer').setup {
             ensure_installed = {
-                "yamlfix",
                 "black",
                 "isort",
+                "mdformat",
+                "nixfmt",
                 "prettier",
                 "prettierd",
-                "mdformat",
+                "yamlfix",
             },
         }
 

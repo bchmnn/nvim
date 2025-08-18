@@ -27,6 +27,7 @@ return {
             -- needs to install mdformat-myst in $HOME/.local/share/nvim/mason/packages/mdformat/venv
             markdown = { "mdformat" },
             php = { "php_cs_fixer", env = { PHP_CS_FIXER_IGNORE_ENV = "1" } },
+            nix = { "nixfmt" },
         },
         formatters = {
             php_cs_fixer = { env = { PHP_CS_FIXER_IGNORE_ENV = "1" } },
