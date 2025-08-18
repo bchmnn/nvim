@@ -56,7 +56,6 @@ return {
                 }
             },
             marksman = {},
-            nil_ls = {},
             phpactor = {},
             pyright = {
                 settings = {
@@ -90,6 +89,26 @@ return {
         for name, _ in pairs(options) do
             table.insert(servers, name)
             local opts = options[name]
+            opts[capabilities] = capabilities
+            require("lspconfig")[name].setup(opts)
+        end
+
+        local function is_nixos()
+            local f = io.open("/etc/os-release", "r")
+            if f then
+                local content = f:read("*all")
+                f:close()
+                if content:match('ID=nixos') then
+                    return true
+                end
+            end
+            return false
+        end
+
+        if is_nixos() then
+            local name = "nil_ls"
+            table.insert(servers, name)
+            local opts = {}
             opts[capabilities] = capabilities
             require("lspconfig")[name].setup(opts)
         end
