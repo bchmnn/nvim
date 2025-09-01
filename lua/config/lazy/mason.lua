@@ -89,7 +89,7 @@ return {
         for name, _ in pairs(options) do
             table.insert(servers, name)
             local opts = options[name]
-            opts[capabilities] = capabilities
+            opts['capabilities'] = capabilities
             require("lspconfig")[name].setup(opts)
         end
 
@@ -109,7 +109,12 @@ return {
             local name = "nil_ls"
             table.insert(servers, name)
             local opts = {}
-            opts[capabilities] = capabilities
+            opts['capabilities'] = capabilities
+            require("lspconfig")[name].setup(opts)
+
+            name = "nixd"
+            opts = {}
+            opts['capabilities'] = capabilities
             require("lspconfig")[name].setup(opts)
         end
 
