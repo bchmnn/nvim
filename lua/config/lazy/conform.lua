@@ -28,6 +28,7 @@ return {
             markdown = { "mdformat" },
             php = { "php_cs_fixer", env = { PHP_CS_FIXER_IGNORE_ENV = "1" } },
             nix = { "nixfmt" },
+            sh = { "shfmt" },
         },
         formatters = {
             php_cs_fixer = { env = { PHP_CS_FIXER_IGNORE_ENV = "1" } },

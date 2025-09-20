@@ -29,6 +29,7 @@ return {
         require("mason").setup()
 
         local options = {
+            bashls = {},
             clangd = {},
             gopls = {},
             html = {
@@ -68,7 +69,6 @@ return {
                     }
                 },
             },
-            ruff = {},
             rust_analyzer = {},
             tailwindcss = {
                 filetypes = {
@@ -90,7 +90,7 @@ return {
             table.insert(servers, name)
             local opts = options[name]
             opts['capabilities'] = capabilities
-            require("lspconfig")[name].setup(opts)
+            vim.lsp.config[name] = opts
         end
 
         local function is_nixos()
@@ -110,12 +110,12 @@ return {
             table.insert(servers, name)
             local opts = {}
             opts['capabilities'] = capabilities
-            require("lspconfig")[name].setup(opts)
+            vim.lsp.config[name] = opts
 
             name = "nixd"
             opts = {}
             opts['capabilities'] = capabilities
-            require("lspconfig")[name].setup(opts)
+            vim.lsp.config[name] = opts
         end
 
         require("mason-lspconfig").setup({
