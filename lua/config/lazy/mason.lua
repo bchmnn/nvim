@@ -83,6 +83,7 @@ return {
             templ = {},
             texlab = {},
             ts_ls = {},
+            zls = {},
         }
 
         local servers = {}
