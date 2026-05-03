@@ -24,8 +24,10 @@ require("nvim-treesitter").install({
 vim.filetype.add({
 	extension = {
 		y = "lex",
+		templ = "templ",
 	},
 })
+
 vim.treesitter.language.register("python", "sage")
 
 vim.api.nvim_create_autocmd("FileType", {
